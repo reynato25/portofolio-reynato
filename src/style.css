@@ -1,89 +1,185 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+body, html {
+    background-color: #050505fd;
+    color: #fff;
+    font-family: 'Montserrat',sans-serif;;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+nav {
+    color: #fff;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.img-fluid  {
+    height: 300px;
+    width: 300px;
+    border: 4px solid rgb(253, 253, 253);
+   
 }
 
-body {
-  margin: 0;
+.lead {
+    font-size: 20px;
+}
+
+.bg-custom {
+  background-color: #353033; /* Warna kustom */
+}
+
+.zoom {
+    transition: transform 0.5s ease;
+}
+.zoom:hover {
+    transform: scale(1.05);
+}
+
+.btn-purple {
+  background-color: #6f1fd6;
+  color: #fff;
+  border: none;
+}
+
+.btn-purple:hover {
+  background-color: #340e41;
+  color: #fff;
+}
+
+.image-container {
+  position: relative;
+ 
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  padding-bottom: 20px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.card {
-  padding: 2em;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.text-overlay {
+  font-size: 1.5rem;
   text-align: center;
+  margin: 0;
+  opacity: 1 !important;
+  transition: none !important;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.btn-outline-custom {
+  border-color: #6f1fd6;
+  color: #6f1fd6;
+}
+
+.btn-outline-custom:hover {
+  background-color: #6f1fd6;
+  color: #ffffff;
+}
+
+.image-container:hover .overlay {
+  opacity: 1; /* tampilkan overlay saat hover */
+}
+
+.border-ungu {
+  border: 6px solid #ffffff;
+  border-radius: 50%;
+  object-fit: cover;
+
+}
+
+.card-img-top:hover .position-absolute {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.position-absolute {
+  opacity: 0;
+}
+
+
+.chevron {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scale3d(0.5, 0.5, 0.5);
+  width: 28px;
+  height: 2px;
+  opacity: 0;
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #fff;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
   }
-  a:hover {
-    color: #747bff;
+  33% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(30px);
   }
-  button {
-    background-color: #f9f9f9;
+  67% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(40px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(55px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+.text {
+  display: block;
+  margin-top: 75px;
+  margin-left: -30px;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .25;
+  animation: pulse 2s linear alternate infinite;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
   }
 }
